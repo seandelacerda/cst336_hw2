@@ -95,7 +95,7 @@ $(document).ready(function() {
     const gameOver = () => {
         $("button").prop("disabled", "true");
         $("#message").text(`Better luck next time! The secret word was ${secretWord}`);
-        $("#message").append("<br><button enabled class='play-again'>Play again</button>");
+        $("#message").append(`<br><button enabled id="restart" class="btn btn-success">Play again</button>`);
     }
     
     
@@ -124,7 +124,7 @@ $(document).ready(function() {
                 if (correctLetters.length === secretWord.length) {
                     $("button").prop("disabled", "true");
                     $("#message").text("You won!");
-                    $("#message").append("<br><button enabled class='play-again btn btn-success'>Play again</button>");
+                    $("#message").append(`<br><button enabled id="restart" class="btn btn-success">Play again</button>`);
                 }
             }
         });
@@ -141,7 +141,7 @@ $(document).ready(function() {
         }
 
         // Refresh if user wants to play again
-        $(".play-again").on("click", function() {
+        $("#restart").on("click", function() {
             location.reload();
         });
 
